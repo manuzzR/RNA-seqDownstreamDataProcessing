@@ -12,3 +12,19 @@ for (i in packages) {
   }
 }
 for (i in packages) library(i, character.only = T)
+
+# transpose the data and prepared dataset for WGCNA analysis 
+input_mat = t(expression_normalized_data)
+
+allowWGCNAThreads() # allow multi-threading (optional)
+# choose a set of soft-thresholding powers
+powers = c(c(1:10), seq(from = 12, to 20, by = 20))
+
+# Call the network topology analysis function
+sft = pickSoftThreshold(
+  input_mat,             # <= Input data
+  #blockSize = 30,
+  powerVector = powers,
+  verbose = 5
+  )
+
