@@ -1,8 +1,8 @@
-# Load necessary packages
+#Load necessary packages
 library(dplyr)
 library(ggplot2)
 
-# Read in the files
+#Read in the files
 trinity_cog <- read.table("cog_annotations.txt", sep = "\t", header = TRUE)
 fun_20 <- read.table("fun-20.tab",sep = "\t",  header = FALSE) %>% 
   select(V1,V3)
